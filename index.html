@@ -753,6 +753,384 @@
             transform: translateY(-2px);
         }
         
+        /* ===== INSIGHTS SECTION ===== */
+        .insights-section {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+        
+        [data-theme="dark"] .insights-section {
+            background: #0f172a;
+        }
+        
+        .insights-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text);
+        }
+        
+        /* Featured Framework Card */
+        .featured-framework {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-framework::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .featured-label {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .featured-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .framework-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .framework-stat {
+            text-align: center;
+        }
+        
+        .framework-stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .framework-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .framework-preview {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .framework-preview img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Core Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .insight-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        [data-theme="dark"] .insight-card {
+            background: var(--light);
+        }
+        
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+        
+        .insight-category {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .insight-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .insight-content {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .insight-expand {
+            color: var(--secondary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+        
+        .insight-card:hover .insight-expand {
+            gap: 1rem;
+        }
+        
+        .insight-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .insight-details.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        /* Articles Section */
+        .articles-section {
+            margin-bottom: 4rem;
+        }
+        
+        .articles-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .articles-title {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .articles-subtitle {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .article-card {
+            background: var(--light);
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .article-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-date {
+            color: var(--text);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-excerpt {
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Video Resources */
+        .video-section {
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        [data-theme="dark"] .video-section {
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .video-card {
+            background: var(--light);
+        }
+        
+        .video-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .video-card:hover .play-button {
+            transform: scale(1.1);
+            background: white;
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-duration {
+            color: var(--text);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Interactive Explorer */
+        .explorer-section {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.05), rgba(30, 41, 59, 0.02));
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        [data-theme="dark"] .explorer-section {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.3), rgba(30, 41, 59, 0.1));
+        }
+        
+        .explorer-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .explorer-description {
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .explorer-cta {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .explorer-cta:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
         /* ===== CONTACT SECTION ===== */
         .contact {
             padding: 5rem 2rem;
@@ -921,6 +1299,32 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            /* Insights mobile styles */
+            .featured-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .featured-title {
+                font-size: 2rem;
+            }
+            
+            .framework-stats {
+                justify-content: center;
+            }
+            
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* ===== FLOATING ACTION BUTTON ===== */
@@ -980,6 +1384,7 @@
                 <li><a href="#case-studies">Case Studies</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#tools">Tools</a></li>
+                <li><a href="#insights">Insights</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
             </ul>
@@ -1247,6 +1652,295 @@
                     <p>Download my guide to financial process optimization</p>
                     <a href="#" class="tool-cta" onclick="alert('Playbook download coming soon!'); return false;">Get Free Guide</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Hub Section -->
+    <section id="insights" class="insights-section">
+        <div class="section-container">
+            <h2 class="section-title">Financial Insights & Resources</h2>
+            <p class="insights-intro">
+                Research, frameworks, and practical tools from my experience transforming financial operations at Fortune 500 companies and high-growth startups.
+            </p>
+            
+            <!-- Featured Framework -->
+            <div class="featured-framework">
+                <div class="featured-content">
+                    <div>
+                        <div class="featured-label">FEATURED FRAMEWORK</div>
+                        <h3 class="featured-title">The CFO Transformation Playbook</h3>
+                        <p class="featured-description">
+                            My comprehensive framework for financial transformation, including 150+ slides on process optimization, 
+                            system integration, and building world-class finance teams.
+                        </p>
+                        <div class="framework-stats">
+                            <div class="framework-stat">
+                                <div class="framework-stat-number">150+</div>
+                                <div class="framework-stat-label">Slides</div>
+                            </div>
+                            <div class="framework-stat">
+                                <div class="framework-stat-number">12</div>
+                                <div class="framework-stat-label">Modules</div>
+                            </div>
+                            <div class="framework-stat">
+                                <div class="framework-stat-number">50+</div>
+                                <div class="framework-stat-label">Templates</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="background: white; color: var(--primary);">
+                            View Framework →
+                        </a>
+                    </div>
+                    <div class="framework-preview">
+                        <div class="skeleton" style="height: 300px; border-radius: 10px;">
+                            <!-- Framework preview image -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Core Insights Grid -->
+            <div class="insights-grid">
+                <div class="insight-card" onclick="toggleInsight(this)">
+                    <div class="insight-category">FINANCIAL SYSTEMS</div>
+                    <h3 class="insight-title">Building Scalable Financial Infrastructure</h3>
+                    <p class="insight-content">
+                        My research into Fortune 500 financial systems reveals specific patterns: 
+                        successful transformations prioritize data integrity over speed, build 
+                        redundancy into critical processes, and cultivate cross-functional ownership.
+                    </p>
+                    <div class="insight-expand">
+                        <span>Explore Framework</span>
+                        <span>→</span>
+                    </div>
+                    <div class="insight-details">
+                        <p>Key principles include:</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>Automated reconciliation reducing manual work by 80%</li>
+                            <li>Real-time dashboards for executive decision-making</li>
+                            <li>Integrated ERP systems across global entities</li>
+                            <li>SOX-compliant controls without sacrificing efficiency</li>
+                        </ul>
+                        <a href="#" style="color: var(--secondary);">Download detailed framework →</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card" onclick="toggleInsight(this)">
+                    <div class="insight-category">MONTH-END CLOSE</div>
+                    <h3 class="insight-title">The 10-Day Close: A Practical Guide</h3>
+                    <p class="insight-content">
+                        Reducing month-end close from 15 to 10 days isn't about working faster—it's 
+                        about eliminating redundancies, automating validations, and creating clear 
+                        accountability matrices.
+                    </p>
+                    <div class="insight-expand">
+                        <span>View Methodology</span>
+                        <span>→</span>
+                    </div>
+                    <div class="insight-details">
+                        <p>My proven approach includes:</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>Day-by-day close calendar with clear deliverables</li>
+                            <li>Automated journal entry templates</li>
+                            <li>Pre-close checklists reducing last-minute issues by 60%</li>
+                            <li>Cross-functional alignment sessions</li>
+                        </ul>
+                        <a href="#" style="color: var(--secondary);">Access close optimization toolkit →</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card" onclick="toggleInsight(this)">
+                    <div class="insight-category">CASH FLOW MANAGEMENT</div>
+                    <h3 class="insight-title">95% Forecast Accuracy Framework</h3>
+                    <p class="insight-content">
+                        Achieving 95% cash flow forecast accuracy requires moving beyond historical 
+                        trending to predictive modeling that incorporates operational drivers and 
+                        real-time market signals.
+                    </p>
+                    <div class="insight-expand">
+                        <span>Learn More</span>
+                        <span>→</span>
+                    </div>
+                    <div class="insight-details">
+                        <p>Core components:</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>13-week rolling forecast models</li>
+                            <li>AI-driven payment pattern analysis</li>
+                            <li>Scenario planning for 3 probability cases</li>
+                            <li>Daily variance tracking and adjustment</li>
+                        </ul>
+                        <a href="#" style="color: var(--secondary);">Download forecast model template →</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card" onclick="toggleInsight(this)">
+                    <div class="insight-category">M&A INTEGRATION</div>
+                    <h3 class="insight-title">Post-Merger Financial Integration</h3>
+                    <p class="insight-content">
+                        Successful M&A integration isn't just about combining systems—it's about 
+                        preserving value while creating synergies through thoughtful financial 
+                        architecture.
+                    </p>
+                    <div class="insight-expand">
+                        <span>Explore Playbook</span>
+                        <span>→</span>
+                    </div>
+                    <div class="insight-details">
+                        <p>Integration framework covers:</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>100-day integration roadmap</li>
+                            <li>Chart of accounts harmonization</li>
+                            <li>Intercompany elimination processes</li>
+                            <li>Cultural alignment strategies</li>
+                        </ul>
+                        <a href="#" style="color: var(--secondary);">Access M&A toolkit →</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card" onclick="toggleInsight(this)">
+                    <div class="insight-category">TEAM LEADERSHIP</div>
+                    <h3 class="insight-title">Building High-Performance Finance Teams</h3>
+                    <p class="insight-content">
+                        Leading teams across 3 continents taught me that high-performance isn't 
+                        about individual excellence—it's about creating systems where good people 
+                        can do great work.
+                    </p>
+                    <div class="insight-expand">
+                        <span>View Insights</span>
+                        <span>→</span>
+                    </div>
+                    <div class="insight-details">
+                        <p>Leadership principles:</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>Competency matrices for role clarity</li>
+                            <li>Monthly 1-on-1 frameworks</li>
+                            <li>Cross-training programs for resilience</li>
+                            <li>Recognition systems that drive retention</li>
+                        </ul>
+                        <a href="#" style="color: var(--secondary);">Download team development guide →</a>
+                    </div>
+                </div>
+                
+                <div class="insight-card" onclick="toggleInsight(this)">
+                    <div class="insight-category">TECHNICAL ACCOUNTING</div>
+                    <h3 class="insight-title">ASC 606 Implementation Guide</h3>
+                    <p class="insight-content">
+                        Revenue recognition under ASC 606 transformed how we think about contracts. 
+                        My framework simplifies complex multi-element arrangements into manageable 
+                        components.
+                    </p>
+                    <div class="insight-expand">
+                        <span>Access Guide</span>
+                        <span>→</span>
+                    </div>
+                    <div class="insight-details">
+                        <p>Implementation toolkit includes:</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>5-step revenue recognition flowchart</li>
+                            <li>Contract review checklist</li>
+                            <li>SSP analysis templates</li>
+                            <li>Disclosure examples and templates</li>
+                        </ul>
+                        <a href="#" style="color: var(--secondary);">Download ASC 606 toolkit →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Articles Section -->
+            <div class="articles-section">
+                <div class="articles-header">
+                    <div>
+                        <h3 class="articles-title">Latest Articles</h3>
+                        <p class="articles-subtitle">Deep dives into financial transformation and leadership</p>
+                    </div>
+                </div>
+                
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="article-image">📊</div>
+                        <div class="article-content">
+                            <div class="article-date">March 2024</div>
+                            <h4 class="article-title">The Future of Financial Reporting: Real-Time Analytics</h4>
+                            <p class="article-excerpt">
+                                How modern CFOs are moving from monthly reporting to continuous insight generation...
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-image">🚀</div>
+                        <div class="article-content">
+                            <div class="article-date">February 2024</div>
+                            <h4 class="article-title">Scaling Finance Teams: From Startup to IPO</h4>
+                            <p class="article-excerpt">
+                                Lessons learned building finance functions at high-growth companies...
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <div class="article-image">🌍</div>
+                        <div class="article-content">
+                            <div class="article-date">January 2024</div>
+                            <h4 class="article-title">Managing Multi-Currency Complexity</h4>
+                            <p class="article-excerpt">
+                                Practical strategies for FX risk management in global operations...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Resources -->
+            <div class="video-section">
+                <h3 class="articles-title">Video Walkthroughs</h3>
+                <p class="articles-subtitle">See my frameworks and dashboards in action</p>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-duration">15 minutes</div>
+                            <h4 class="video-title">Dashboard Deep Dive: Month-End Close Optimization</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-duration">12 minutes</div>
+                            <h4 class="video-title">Building Your First Financial Dashboard</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <div class="video-duration">20 minutes</div>
+                            <h4 class="video-title">CFO Masterclass: Cash Flow Forecasting</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Explorer -->
+            <div class="explorer-section">
+                <h3 class="explorer-title">Explore Financial Transformation Strategies</h3>
+                <p class="explorer-description">
+                    Ask questions about financial best practices, explore frameworks, and discover how 
+                    these principles apply to your specific challenges.
+                </p>
+                <a href="#" class="explorer-cta">
+                    <span>Launch Financial Strategy Explorer</span>
+                    <span>→</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1573,6 +2267,22 @@
             // Replace with your form handling logic
             alert('Thank you for your interest! I will get back to you soon.');
             event.target.reset();
+        }
+
+        // ===== TOGGLE INSIGHT DETAILS =====
+        function toggleInsight(card) {
+            const details = card.querySelector('.insight-details');
+            const isActive = details.classList.contains('active');
+            
+            // Close all other insights
+            document.querySelectorAll('.insight-details').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Toggle current insight
+            if (!isActive) {
+                details.classList.add('active');
+            }
         }
 
         // ===== INITIALIZE ON LOAD =====
