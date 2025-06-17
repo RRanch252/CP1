@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connor Powell - CFO & Financial Transformation Leader. Expert in financial operations, reducing close cycles by 33% and delivering 95% forecast accuracy.">
+    <meta name="keywords" content="CFO, Financial Controller, Financial Transformation, Connor Powell">
+    <meta name="author" content="Connor Powell">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Connor Powell - CFO & Financial Transformation Leader">
+    <meta property="og:description" content="Transform your financial operations with proven strategies. 33% close reduction, 95% forecast accuracy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://connorpowell.com">
+    
+    <title>Connor Powell | CFO & Financial Transformation Leader</title>
+    
+    <!-- 
+    =====================================
+    CONNOR POWELL - PROFESSIONAL LANDING PAGE
+    =====================================
+    Single-file responsive landing page for GitHub Pages
+    
+    Features:
+    - Interactive dashboard previews
+    - Dark/light mode toggle
+    - Animated statistics
+    - Skills radar chart
+    - Responsive design
+    - No external dependencies
+    
+    To customize:
+    1. Replace placeholder images with actual logos/screenshots
+    2. Update contact form action URL
+    3. Add Google Analytics ID
+    4. Customize colors in CSS variables
+    5. Update social media links
+    
+    GitHub: https://github.com/connorpowell
+    -->
+    
+    <style>
+        /* ===== CSS RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a365d;
+            --secondary: #2563eb;
+            --accent: #3b82f6;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --text: #334155;
+            --glass: rgba(255, 255, 255, 0.1);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --secondary: #60a5fa;
+            --accent: #93bbfc;
+            --light: #1e293b;
+            --dark: #f8fafc;
+            --text: #e2e8f0;
+            --glass: rgba(30, 41, 59, 0.3);
+            background: #0f172a;
+        }
+        
+        /* ===== BASE STYLES ===== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+        
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        [data-theme="dark"] nav.scrolled {
+            background: rgba(30, 41, 59, 0.95);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Dark mode toggle */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--secondary);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: var(--secondary);
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            background: linear-gradient(135deg, var(--light) 0%, #e0e7ff 100%);
+        }
+        
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, var(--light) 0%, #1e3a8a 100%);
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .hero-text h2 {
+            font-size: 1.75rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+        
+        /* Interactive Dashboard Preview */
+        .hero-dashboard {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        [data-theme="dark"] .hero-dashboard {
+            background: rgba(30, 41, 59, 0.9);
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .dashboard-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .dashboard-live {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--success);
+            font-size: 0.9rem;
+        }
+        
+        .live-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Animated Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .stat-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .stat-card {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .stat-trend {
+            font-size: 0.8rem;
+            color: var(--success);
+        }
+        
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover:before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* ===== DASHBOARD SHOWCASE ===== */
+        .dashboard-showcase {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        [data-theme="dark"] .dashboard-showcase {
+            background: var(--light);
+        }
+        
+        .showcase-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--light);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        [data-theme="dark"] .tab {
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .tab.active {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .dashboard-preview {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        [data-theme="dark"] .dashboard-preview {
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .dashboard-preview:before {
+            content: 'Interactive Demo';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* ===== CASE STUDIES ===== */
+        .case-studies {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+        
+        [data-theme="dark"] .case-studies {
+            background: #0f172a;
+        }
+        
+        .case-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 2rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary) var(--light);
+        }
+        
+        .case-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .case-carousel::-webkit-scrollbar-track {
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .case-carousel::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+        
+        .case-card {
+            min-width: 350px;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            scroll-snap-align: start;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .case-card {
+            background: var(--light);
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .case-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .case-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .case-metrics {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .metric {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        [data-theme="dark"] .metric {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        /* ===== SKILLS SECTION ===== */
+        .skills-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        [data-theme="dark"] .skills-section {
+            background: var(--light);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .skills-chart {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        
+        .radar-chart {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .skill-details {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .skill-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .skill-item {
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .skill-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .skill-level {
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* ===== TRUST SECTION ===== */
+        .trust-section {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+        
+        [data-theme="dark"] .trust-section {
+            background: #0f172a;
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .client-logos:hover {
+            opacity: 1;
+        }
+        
+        .logo-item {
+            filter: grayscale(100%);
+            transition: all 0.3s;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        [data-theme="dark"] .logo-item {
+            background: var(--light);
+            color: var(--text);
+        }
+        
+        .logo-item:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+            color: var(--secondary);
+        }
+        
+        /* ===== TOOLS SECTION ===== */
+        .tools-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        [data-theme="dark"] .tools-section {
+            background: var(--light);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tool-card {
+            background: linear-gradient(135deg, var(--light), white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        [data-theme="dark"] .tool-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(30, 41, 59, 0.3));
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tool-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .tool-cta {
+            background: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .tool-cta:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2,
+        .contact p {
+            color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .submit-btn {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* ===== LOADING SKELETON ===== */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        [data-theme="dark"] .skeleton {
+            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+            background-size: 200% 100%;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-dashboard {
+                display: none;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-chart {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .case-carousel {
+                padding: 1rem 0;
+            }
+            
+            .case-card {
+                min-width: 280px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* ===== FLOATING ACTION BUTTON ===== */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .fab:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+        
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            nav, .fab, .theme-toggle {
+                display: none;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+            
+            .section-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h3>Connor Powell</h3>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#dashboards">Dashboards</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Interactive Dashboard -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Connor Powell</h1>
+                <h2>CFO & Financial Transformation Leader</h2>
+                <p>I transform financial operations through data-driven strategies, reducing close cycles by 33% and delivering 95% forecast accuracy. Watch my dashboards in action.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#dashboards" class="btn btn-primary">
+                        <span>See My CFO Dashboard Demo</span>
+                        <span>→</span>
+                    </a>
+                    <a href="#tools" class="btn btn-secondary">
+                        <span>Calculate Your ROI</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Interactive Dashboard Preview -->
+            <div class="hero-dashboard">
+                <div class="dashboard-header">
+                    <h3 class="dashboard-title">Real-Time Financial KPIs</h3>
+                    <div class="dashboard-live">
+                        <span class="live-indicator"></span>
+                        <span>Live Demo</span>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-card" onclick="animateCounter(this)">
+                        <div class="stat-number">
+                            <span class="counter" data-target="33">0</span>%
+                            <span class="stat-trend">↑</span>
+                        </div>
+                        <div class="stat-label">Close Time Reduction</div>
+                    </div>
+                    <div class="stat-card" onclick="animateCounter(this)">
+                        <div class="stat-number">
+                            <span class="counter" data-target="95">0</span>%
+                            <span class="stat-trend">↑</span>
+                        </div>
+                        <div class="stat-label">Forecast Accuracy</div>
+                    </div>
+                    <div class="stat-card" onclick="animateCounter(this)">
+                        <div class="stat-number">
+                            $<span class="counter" data-target="700">0</span>K
+                            <span class="stat-trend">↑</span>
+                        </div>
+                        <div class="stat-label">Revenue Generated</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 1.5rem;">
+                    <canvas id="miniChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Showcase Section -->
+    <section id="dashboards" class="dashboard-showcase">
+        <div class="section-container">
+            <h2 class="section-title">See My Work in Action</h2>
+            
+            <div class="showcase-tabs">
+                <button class="tab active" onclick="showTab('close', this)">Month-End Close</button>
+                <button class="tab" onclick="showTab('cashflow', this)">Cash Flow Forecasting</button>
+                <button class="tab" onclick="showTab('ma', this)">M&A Deal Tracker</button>
+                <button class="tab" onclick="showTab('consolidation', this)">Multi-Entity Consolidation</button>
+            </div>
+            
+            <div id="close" class="tab-content active">
+                <div class="dashboard-preview">
+                    <h3>Month-End Close Optimization Dashboard</h3>
+                    <p>Interactive before/after analysis showing 33% reduction in close time</p>
+                    <div class="skeleton" style="height: 400px; margin-top: 1rem; border-radius: 10px;">
+                        <!-- Replace with actual dashboard screenshot or embed -->
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cashflow" class="tab-content">
+                <div class="dashboard-preview">
+                    <h3>95% Accuracy Cash Flow Forecasting Model</h3>
+                    <p>Real-time predictive analytics with scenario planning</p>
+                    <div class="skeleton" style="height: 400px; margin-top: 1rem; border-radius: 10px;">
+                        <!-- Replace with actual dashboard screenshot or embed -->
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ma" class="tab-content">
+                <div class="dashboard-preview">
+                    <h3>M&A Deal Pipeline Tracker</h3>
+                    <p>End-to-end deal management from due diligence to integration</p>
+                    <div class="skeleton" style="height: 400px; margin-top: 1rem; border-radius: 10px;">
+                        <!-- Replace with actual dashboard screenshot or embed -->
+                    </div>
+                </div>
+            </div>
+            
+            <div id="consolidation" class="tab-content">
+                <div class="dashboard-preview">
+                    <h3>9-Country Consolidation Dashboard</h3>
+                    <p>Multi-currency, multi-entity financial consolidation in real-time</p>
+                    <div class="skeleton" style="height: 400px; margin-top: 1rem; border-radius: 10px;">
+                        <!-- Replace with actual dashboard screenshot or embed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Case Studies -->
+    <section id="case-studies" class="case-studies">
+        <div class="section-container">
+            <h2 class="section-title">My Impact Stories</h2>
+            
+            <div class="case-carousel">
+                <div class="case-card">
+                    <div class="case-icon">📊</div>
+                    <h3 class="case-title">Synaptic Medical Transformation</h3>
+                    <p>Established GAAP-compliant framework for Chinese parent's US expansion</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">$50M</span> Revenue
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">33%</span> Faster Close
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-icon">💰</div>
+                    <h3 class="case-title">EY Revenue Generation</h3>
+                    <p>Identified and captured additional audit services opportunities</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">$700K</span> New Revenue
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">40%</span> Conversion
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-icon">🌍</div>
+                    <h3 class="case-title">Global SOX Implementation</h3>
+                    <p>Designed controls framework across 9 countries with zero deficiencies</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">9</span> Countries
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">0</span> Deficiencies
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-icon">🚀</div>
+                    <h3 class="case-title">Hostile Takeover Advisory</h3>
+                    <p>Led financial advisory for $2B Russian property group transaction</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <span class="metric-value">$2B</span> Deal Size
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">LSE</span> Listed
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Visualization -->
+    <section id="skills" class="skills-section">
+        <div class="skills-container">
+            <div class="skills-chart">
+                <canvas id="skillsRadar" class="radar-chart"></canvas>
+            </div>
+            
+            <div class="skill-details">
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Technical Accounting</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <p>US GAAP, IFRS, ASC 606/842/805/718, Technical Memos</p>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Financial Systems</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <p>NetSuite, SAP, Oracle Cloud, Power BI, Tableau</p>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Strategic Leadership</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <p>Team Building, Board Presentations, M&A Strategy</p>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Global Operations</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <p>Multi-Entity Consolidation, FX Management, Cross-Border Transactions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="trust-section">
+        <div class="section-container">
+            <h2 class="section-title">Trusted by Industry Leaders</h2>
+            <div class="client-logos">
+                <div class="logo-item">Ernst & Young</div>
+                <div class="logo-item">Fortune 500</div>
+                <div class="logo-item">FTSE 100</div>
+                <div class="logo-item">UCLA Health</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tools -->
+    <section id="tools" class="tools-section">
+        <div class="section-container">
+            <h2 class="section-title">Experience My Approach</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🧮</div>
+                    <h3 class="tool-title">ROI Calculator</h3>
+                    <p>See how much you could save with optimized financial processes</p>
+                    <a href="#" class="tool-cta" onclick="alert('ROI Calculator coming soon!'); return false;">Calculate Savings</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📈</div>
+                    <h3 class="tool-title">Financial Health Check</h3>
+                    <p>Quick assessment of your organization's financial maturity</p>
+                    <a href="#" class="tool-cta" onclick="alert('Financial Health Check coming soon!'); return false;">Start Assessment</a>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">📚</div>
+                    <h3 class="tool-title">Transformation Playbook</h3>
+                    <p>Download my guide to financial process optimization</p>
+                    <a href="#" class="tool-cta" onclick="alert('Playbook download coming soon!'); return false;">Get Free Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <h2 class="section-title">Let's Transform Your Financial Operations</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to achieve 95% forecast accuracy and streamline your processes?</p>
+            
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Company">
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Tell me about your financial challenges"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Start the Conversation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Connor Powell. All rights reserved. | <a href="mailto:connorlpowell10@gmail.com">connorlpowell10@gmail.com</a> | <a href="https://linkedin.com/in/connor-powell" target="_blank">LinkedIn</a></p>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // ===== PROGRESS BAR =====
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+            
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== COUNTER ANIMATION =====
+        function animateCounter(element) {
+            const counter = element.querySelector('.counter');
+            const target = +counter.getAttribute('data-target');
+            const speed = 200;
+            
+            const updateCount = () => {
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        }
+
+        // ===== INTERSECTION OBSERVER =====
+        const observerOptions = {
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('hero-dashboard')) {
+                        // Animate all counters when dashboard comes into view
+                        const counters = entry.target.querySelectorAll('.stat-card');
+                        counters.forEach(counter => animateCounter(counter));
+                        drawMiniChart();
+                        observer.unobserve(entry.target);
+                    }
+                    if (entry.target.classList.contains('skills-chart')) {
+                        drawSkillsRadar();
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.hero-dashboard, .skills-chart').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== TAB FUNCTIONALITY =====
+        function showTab(tabName, button) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            button.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // ===== THEME TOGGLE =====
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            
+            // Save theme preference
+            localStorage.setItem('theme', newTheme);
+            
+            // Update button icon
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // ===== SCROLL TO TOP =====
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ===== DRAW MINI CHART =====
+        function drawMiniChart() {
+            const canvas = document.getElementById('miniChart');
+            if (canvas && canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                const width = canvas.width;
+                const height = canvas.height;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, width, height);
+                
+                // Chart data points (normalized)
+                const data = [30, 25, 22, 18, 15, 12, 10];
+                const maxValue = Math.max(...data);
+                const padding = 20;
+                const chartWidth = width - (padding * 2);
+                const chartHeight = height - (padding * 2);
+                
+                // Draw grid lines
+                ctx.strokeStyle = 'rgba(200, 200, 200, 0.3)';
+                ctx.lineWidth = 1;
+                for (let i = 0; i <= 5; i++) {
+                    const y = padding + (chartHeight / 5) * i;
+                    ctx.beginPath();
+                    ctx.moveTo(padding, y);
+                    ctx.lineTo(width - padding, y);
+                    ctx.stroke();
+                }
+                
+                // Draw line chart
+                ctx.strokeStyle = '#2563eb';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                
+                data.forEach((value, index) => {
+                    const x = padding + (chartWidth / (data.length - 1)) * index;
+                    const y = padding + chartHeight - (value / maxValue) * chartHeight;
+                    
+                    if (index === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                });
+                ctx.stroke();
+                
+                // Add gradient fill
+                const gradient = ctx.createLinearGradient(0, padding, 0, height - padding);
+                gradient.addColorStop(0, 'rgba(37, 99, 235, 0.3)');
+                gradient.addColorStop(1, 'rgba(37, 99, 235, 0)');
+                
+                // Fill area under line
+                ctx.fillStyle = gradient;
+                ctx.lineTo(width - padding, height - padding);
+                ctx.lineTo(padding, height - padding);
+                ctx.closePath();
+                ctx.fill();
+                
+                // Add data points
+                ctx.fillStyle = '#2563eb';
+                data.forEach((value, index) => {
+                    const x = padding + (chartWidth / (data.length - 1)) * index;
+                    const y = padding + chartHeight - (value / maxValue) * chartHeight;
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+        }
+
+        // ===== DRAW SKILLS RADAR CHART =====
+        function drawSkillsRadar() {
+            const canvas = document.getElementById('skillsRadar');
+            if (canvas && canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const radius = Math.min(canvas.width, canvas.height) / 2 - 40;
+                
+                // Skills data
+                const skills = [
+                    { name: 'Technical Accounting', value: 95 },
+                    { name: 'Financial Systems', value: 85 },
+                    { name: 'Strategic Leadership', value: 90 },
+                    { name: 'Global Operations', value: 92 },
+                    { name: 'M&A Experience', value: 88 }
+                ];
+                
+                const angleStep = (Math.PI * 2) / skills.length;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw radar grid
+                ctx.strokeStyle = 'rgba(200, 200, 200, 0.3)';
+                ctx.lineWidth = 1;
+                
+                // Draw concentric polygons
+                for (let i = 1; i <= 5; i++) {
+                    ctx.beginPath();
+                    for (let j = 0; j < skills.length; j++) {
+                        const angle = j * angleStep - Math.PI / 2;
+                        const x = centerX + Math.cos(angle) * (radius * i / 5);
+                        const y = centerY + Math.sin(angle) * (radius * i / 5);
+                        
+                        if (j === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+                
+                // Draw axes
+                for (let i = 0; i < skills.length; i++) {
+                    const angle = i * angleStep - Math.PI / 2;
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.lineTo(
+                        centerX + Math.cos(angle) * radius,
+                        centerY + Math.sin(angle) * radius
+                    );
+                    ctx.stroke();
+                }
+                
+                // Draw skill values
+                ctx.fillStyle = 'rgba(37, 99, 235, 0.3)';
+                ctx.strokeStyle = '#2563eb';
+                ctx.lineWidth = 2;
+                
+                ctx.beginPath();
+                skills.forEach((skill, index) => {
+                    const angle = index * angleStep - Math.PI / 2;
+                    const x = centerX + Math.cos(angle) * (radius * skill.value / 100);
+                    const y = centerY + Math.sin(angle) * (radius * skill.value / 100);
+                    
+                    if (index === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+                
+                // Draw skill labels
+                ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--text');
+                ctx.font = '14px -apple-system, BlinkMacSystemFont, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                skills.forEach((skill, index) => {
+                    const angle = index * angleStep - Math.PI / 2;
+                    const labelX = centerX + Math.cos(angle) * (radius + 25);
+                    const labelY = centerY + Math.sin(angle) * (radius + 25);
+                    
+                    // Adjust text alignment based on position
+                    if (Math.abs(labelX - centerX) < 10) {
+                        ctx.textAlign = 'center';
+                    } else if (labelX < centerX) {
+                        ctx.textAlign = 'right';
+                    } else {
+                        ctx.textAlign = 'left';
+                    }
+                    
+                    ctx.fillText(skill.name, labelX, labelY);
+                });
+            }
+        }
+
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ===== FORM HANDLING =====
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            // Replace with your form handling logic
+            alert('Thank you for your interest! I will get back to you soon.');
+            event.target.reset();
+        }
+
+        // ===== INITIALIZE ON LOAD =====
+        window.addEventListener('load', () => {
+            // Trigger animations for elements already in view
+            const heroElement = document.querySelector('.hero-dashboard');
+            if (heroElement) {
+                const rect = heroElement.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const counters = heroElement.querySelectorAll('.stat-card');
+                    counters.forEach(counter => animateCounter(counter));
+                    drawMiniChart();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
